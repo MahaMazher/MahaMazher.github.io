@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maha Mazheruddin - University Entrance Essay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --serif: 'Crimson Text', 'Georgia', serif;
+            --sans: 'Inter', 'Helvetica Neue', sans-serif;
+            --bg-dark: #0a0a0f;
+            --bg-mid: #12121a;
+            --text: #e0e0e8;
+            --text-dim: #a0a0b0;
+            --neon-cyan: #00f3ff;
+            --neon-purple: #b16bff;
+            --neon-pink: #ff6bcb;
+            --neon-blue: #4d7cff;
+        }
+
+        body {
+            font-family: var(--serif);
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(0, 243, 255, 0.15) 0%, 
+                transparent 50%),
+                radial-gradient(circle at 80% 20%, 
+                rgba(177, 107, 255, 0.2) 0%, 
+                transparent 50%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: var(--sans);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(0, 243, 255, 0.5);
+        }
+
+        h1.glow {
+            filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.6))
+                    drop-shadow(0 0 40px rgba(177, 107, 255, 0.4));
+        }
+
+        .subtitle {
+            font-family: var(--sans);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--neon-cyan);
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+        }
+
+        .intro {
+            padding: 6rem 0;
+            opacity: 0;
+        }
+
+        .intro-text {
+            font-size: 1.5rem;
+            line-height: 1.7;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .body-section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-family: var(--sans);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            margin: 4rem 0 2rem 0;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            color: var(--neon-purple);
+        }
+
+        h2.glow {
+            text-shadow: 0 0 30px rgba(177, 107, 255, 0.8),
+                         0 0 60px rgba(177, 107, 255, 0.4);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            color: var(--text);
+        }
+
+        .skills-highlight {
+            background: linear-gradient(135deg, 
+                rgba(0, 243, 255, 0.08),
+                rgba(177, 107, 255, 0.08));
+            border: 1px solid rgba(177, 107, 255, 0.3);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 8px;
+            opacity: 0;
+        }
+
+        .skills-highlight p {
+            opacity: 1;
+            color: var(--text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .pull-quote {
+            margin: 5rem 0;
+            padding: 3rem 2rem;
+            border-left: 3px solid var(--neon-pink);
+            background: linear-gradient(to right, 
+                rgba(255, 107, 203, 0.1), 
+                rgba(77, 124, 255, 0.05),
+                transparent);
+            opacity: 0;
+            transform-origin: left center;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        .pull-quote blockquote {
+            font-size: 1.75rem;
+            line-height: 1.5;
+            font-style: italic;
+            color: var(--neon-cyan);
+            margin: 0;
+            opacity: 1;
+        }
+
+        .pull-quote cite {
+            display: block;
+            margin-top: 1.5rem;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+        }
+
+        footer {
+            padding: 6rem 0 3rem 0;
+            text-align: center;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            opacity: 0;
+            border-top: 1px solid rgba(177, 107, 255, 0.2);
+            margin-top: 6rem;
+        }
+
+        .accent-line {
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neon-cyan), 
+                var(--neon-purple),
+                transparent);
+            margin: 4rem 0;
+            opacity: 0;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            .bg-gradient {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            .pull-quote blockquote {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <header>
+        <div class="container">
+            <h1 class="title glow">Maha Mazheruddin</h1>
+            <p class="subtitle">Building Tomorrow's Solutions Today</p>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <p class="intro-text">
+                I build systems. Not just code, but entire ecosystems where content flows, 
+                customers convert, and operations run smoothly. From managing digital campaigns 
+                to organizing events, I've learned that computer science extends far beyond 
+                algorithms. It's about seeing patterns, optimizing workflows, and turning 
+                complexity into clarity.
+            </p>
+        </div>
+    </section>
+
+    <section class="body-section">
+        <div class="container">
+            <div class="accent-line"></div>
+            
+            <h2 class="section-heading glow">Building Real-World Systems</h2>
+            <p class="fade-in">
+                Growing up in Saudi Arabia during a period of rapid digital transformation 
+                taught me something crucial: technology only matters when it solves real problems. 
+                I started with programming fundamentals in C++, Python, Java, HTML, and C#. My 
+                first real project was a simple currency converter. Nothing fancy, just functional. 
+                But watching it work, taking input, processing logic, returning results, that's 
+                when programming stopped being abstract and became tangible.
+            </p>
+            <p class="fade-in">
+                From there, I kept building. Small tools that solved specific problems. Each one 
+                taught me something new about how code translates into solutions. But I quickly 
+                realized that writing code was just the beginning. The real challenge was 
+                understanding what to build and why.
+            </p>
+            <p class="fade-in">
+                Beyond pure development, I've worked across the full spectrum of how digital 
+                products reach users. Content systems, marketing pipelines, customer relationships, 
+                data workflows. Each experience reinforced the same principle: effective technology 
+                requires understanding the entire ecosystem it operates within, not just isolated 
+                components.
+            </p>
+
+            <h2 class="section-heading glow">Systems Thinking in Practice</h2>
+            <p class="fade-in">
+                Working across multiple domains simultaneously has taught me something valuable: 
+                the ability to context-switch isn't a distraction, it's an asset. Technical work 
+                informs strategic decisions, and user-facing experience shapes how I approach 
+                architecture. This cross-pollination of knowledge creates a more complete 
+                understanding of how systems function in reality, not just in theory.
+            </p>
+            <p class="fade-in">
+                Consider customer relationship management. At first glance, it appears purely 
+                operational. Look closer and you'll see data structures, filtering algorithms, 
+                and interface design challenges. Content workflows require thinking about 
+                pipelines and automation. Performance tracking demands understanding of metrics 
+                and optimization. Computer science principles emerge everywhere when you're 
+                trained to recognize them.
+            </p>
+
+            <div class="pull-quote">
+                <blockquote>
+                    "The future belongs to those who believe in the beauty of their dreams, 
+                    and have the courage to pursue them relentlessly."
+                </blockquote>
+            </div>
+
+            <div class="accent-line"></div>
+
+            <h2 class="section-heading glow">The Path Forward</h2>
+            <p class="fade-in">
+                I'm pursuing computer science to go deeper into areas I can't fully explore alone. 
+                Cybersecurity fascinates me, the constant cat and mouse between threats and defenses. 
+                AI and machine learning interest me too, not the hype but the actual challenges of 
+                implementation and ethics. I want to understand how systems handle scale, how to 
+                architect for security, and how to build technology that actually serves people.
+            </p>
+            <p class="fade-in">
+                What I really need is access to people who've been further down this path than I have. 
+                I've built a foundation, but I need mentors who've solved the problems I'm just starting 
+                to encounter. Professors who can push my thinking, resources that let me experiment 
+                beyond what I can set up alone, and an environment designed to turn potential into 
+                capability. Learning in isolation only goes so far. I need the collaboration, the 
+                different perspectives, the people who challenge my assumptions and see angles I miss.
+            </p>
+
+            <div class="skills-highlight">
+                <p>
+                    I'm offering more than academic potential. I bring demonstrated initiative, 
+                    cross-functional experience, and a track record of learning rapidly across 
+                    domains. In exchange for access to rigorous instruction, cutting-edge research, 
+                    and a community of ambitious peers, I commit to contributing actively, thinking 
+                    critically, and helping advance the conversation around what computer science 
+                    can achieve. This isn't just the next step in my education. It's an investment 
+                    in building solutions that matter.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Maha Mazheruddin | 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            gsap.to('.bg-gradient', {
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1
+                },
+                backgroundPosition: '50% 100%',
+                ease: 'none'
+            });
+
+            gsap.to('.bg-gradient', {
+                background: `radial-gradient(circle at 50% 100%, 
+                    rgba(255, 107, 203, 0.2) 0%, 
+                    transparent 50%),
+                    radial-gradient(circle at 20% 80%, 
+                    rgba(77, 124, 255, 0.25) 0%, 
+                    transparent 50%)`,
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 2
+                }
+            });
+
+            gsap.to('.title', {
+                scrollTrigger: {
+                    trigger: 'header',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                },
+                y: 200,
+                opacity: 0,
+                scale: 0.8
+            });
+
+            gsap.to('.title', {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: 'power3.out',
+                delay: 0.3
+            });
+
+            gsap.to('.subtitle', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                delay: 0.6
+            });
+
+            gsap.to('.intro', {
+                scrollTrigger: {
+                    trigger: '.intro',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: true
+                },
+                opacity: 1
+            });
+
+            gsap.utils.toArray('.section-heading').forEach(heading => {
+                gsap.to(heading, {
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: 'top 80%',
+                        end: 'top 30%',
+                        scrub: true
+                    },
+                    opacity: 1,
+                    y: -40
+                });
+            });
+
+            gsap.utils.toArray('.fade-in').forEach(p => {
+                gsap.to(p, {
+                    scrollTrigger: {
+                        trigger: p,
+                        start: 'top 85%',
+                        end: 'top 60%',
+                        scrub: true
+                    },
+                    opacity: 1,
+                    y: 0
+                });
+            });
+
+            gsap.to('.skills-highlight', {
+                scrollTrigger: {
+                    trigger: '.skills-highlight',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: true
+                },
+                opacity: 1,
+                scale: 1
+            });
+            gsap.set('.skills-highlight', { scale: 0.95 });
+
+            gsap.utils.toArray('.accent-line').forEach(line => {
+                gsap.to(line, {
+                    scrollTrigger: {
+                        trigger: line,
+                        start: 'top 85%',
+                        end: 'top 70%',
+                        scrub: true
+                    },
+                    opacity: 0.6,
+                    scaleX: 1
+                });
+                gsap.set(line, { scaleX: 0 });
+            });
+
+            gsap.to('.pull-quote', {
+                scrollTrigger: {
+                    trigger: '.pull-quote',
+                    start: 'top 75%',
+                    end: 'top 40%',
+                    scrub: true
+                },
+                opacity: 1,
+                x: 0,
+                ease: 'power2.out'
+            });
+            gsap.set('.pull-quote', { x: -50 });
+
+            gsap.to('footer', {
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: 'top 90%',
+                    end: 'top 70%',
+                    scrub: true
+                },
+                opacity: 1
+            });
+        } else {
+            gsap.set(['.title', '.subtitle', '.intro', 'h2', 'p', '.pull-quote', '.skills-highlight', '.accent-line', 'footer'], {
+                opacity: 1
+            });
+        }
+    </script>
+</body>
+</html>
